@@ -47,5 +47,14 @@ jobs:
       run: |
         pytest app/modules/ --ignore-glob='*selenium*'
     
-    - name: Check outdated
-        run: npm outdated reveal.js
+  outdated-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+
+      - run: npm ci
+
+      - name: run outdate check
+        uses: odanado/outdated-check-action@v0
+        id: outdate-check
