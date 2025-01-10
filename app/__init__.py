@@ -67,4 +67,4 @@ def create_app(config_name='development'):
     return app
 
 
-app = create_app()
+#app = create_app()
